@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33927.289
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComputerPersonalizer", "ComputerPersonalizer\ComputerPersonalizer.csproj", "{B72A63BF-1964-419F-9AEB-895DCA1563EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComputerPersonalizerBL", "ComputerPersonalizerBL\ComputerPersonalizerBL.csproj", "{35085D1E-89E5-4573-8E00-F16C6012CB6D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B72A63BF-1964-419F-9AEB-895DCA1563EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B72A63BF-1964-419F-9AEB-895DCA1563EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B72A63BF-1964-419F-9AEB-895DCA1563EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B72A63BF-1964-419F-9AEB-895DCA1563EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35085D1E-89E5-4573-8E00-F16C6012CB6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35085D1E-89E5-4573-8E00-F16C6012CB6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35085D1E-89E5-4573-8E00-F16C6012CB6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35085D1E-89E5-4573-8E00-F16C6012CB6D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5E2CD58E-5836-453A-A4A1-A1CE8BB3508F}
+	EndGlobalSection
+EndGlobal
