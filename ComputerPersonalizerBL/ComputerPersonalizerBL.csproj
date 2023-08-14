@@ -41,12 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="PersonalizationElements\Cursor\Cursor.cs" />
+    <Compile Include="PersonalizationElements\WindowsSelection\WindowsSelection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="PersonalizationElements\Cursor\" />
-    <Folder Include="PersonalizationElements\WindowsSelection\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
