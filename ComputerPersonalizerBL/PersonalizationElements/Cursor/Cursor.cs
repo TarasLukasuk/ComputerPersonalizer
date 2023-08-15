@@ -9,5 +9,7 @@ namespace ComputerPersonalizerBL.PersonalizationElements.Cursor
     class Cursor
     {
         private readonly string DefaultCursorPath= @"C:\WINDOWS\cursors\aero_arrow.cur";
+
+       
     }
 }

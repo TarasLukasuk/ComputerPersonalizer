@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using ComputerPersonalizerBL.Controllers.ControllerWindowsSelection;
+using System.Windows;
+
 
 namespace ComputerPersonalizer
 {
@@ -10,6 +12,14 @@ namespace ComputerPersonalizer
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+
+
+        private void test_Loaded(object sender, RoutedEventArgs e)
+        {
+            ControllerWindowsSelection controllerWindowsSelection = new ControllerWindowsSelection(1,56,9);
+            test.Content = controllerWindowsSelection.ToString();
         }
     }
 }
