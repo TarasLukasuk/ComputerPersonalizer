@@ -18,8 +18,8 @@ namespace ComputerPersonalizer
 
         private void test_Loaded(object sender, RoutedEventArgs e)
         {
-            ControllerWindowsSelection controllerWindowsSelection = new ControllerWindowsSelection(1,56,9);
-            test.Content = controllerWindowsSelection.ToString();
+            ControllerWindowsSelection controllerWindowsSelection = new ControllerWindowsSelection(255,255,255);
+            test.Content = controllerWindowsSelection.RgbToHex();
         }
     }
 }

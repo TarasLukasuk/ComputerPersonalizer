@@ -1,5 +1,6 @@
 ﻿using ComputerPersonalizerBL.PersonalizationElements.WindowsSelection;
 using Microsoft.Win32;
+using System.Drawing;
 
 namespace ComputerPersonalizerBL.Controllers.ControllerWindowsSelection
 {
@@ -8,7 +9,7 @@ namespace ComputerPersonalizerBL.Controllers.ControllerWindowsSelection
         private readonly string Hilight= "0 120 215";
         private readonly string HotTrackingColor = "0 102 204";
 
-        private WindowsSelectionColor windowsSelection;
+        private WindowsSelectionColor windowsSelectionColor;
 
         /// <summary>
         /// Assigning colors
@@ -18,7 +19,7 @@ namespace ComputerPersonalizerBL.Controllers.ControllerWindowsSelection
         /// <param name="Blue"></param>
         public ControllerWindowsSelection(int Red, int Green, int Blue)
         {
-            windowsSelection = new WindowsSelectionColor(Red, Green, Blue);
+            windowsSelectionColor = new WindowsSelectionColor(Red, Green, Blue);
         }
 
         /// <summary>
@@ -34,12 +35,36 @@ namespace ComputerPersonalizerBL.Controllers.ControllerWindowsSelection
         }
 
         /// <summary>
+        /// Converting Rgb to Hex
+        /// </summary>
+        /// <returns></returns>
+        public string RgbToHex()
+        {
+            return $"#{windowsSelectionColor.Red:X2}" +
+                   $"{windowsSelectionColor.Green:X2}" +
+                   $"{windowsSelectionColor.Blue:X2}";
+        }
+
+        /// <summary>
+        /// Returns the Windows selection color to the default color
+        /// </summary>
+        public void ResetSelectionColor()
+        {
+            using (RegistryKey registry = Registry.CurrentUser.CreateSubKey(@"Control Panel\Colors"))
+            {
+                registry.SetValue("Hilight", Hilight);
+                registry.SetValue("HotTrackingColor", HotTrackingColor);
+            }
+        }
+
+        /// <summary>
         /// Overriding the ToString method
         /// </summary>
         /// <returns></returns>
         public override string ToString()
         {
-            return $"{windowsSelection.Red} {windowsSelection.Green} {windowsSelection.Blue}";
+            return $"{windowsSelectionColor.Red} {windowsSelectionColor.Green} {windowsSelectionColor.Blue}";
         }
+
     }
 }

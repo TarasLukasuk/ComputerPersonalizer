@@ -15,8 +15,8 @@
             Blue = blue;
         }
 
-        public int Red { get; set; }
-        public int Green { get; set; }
-        public int Blue { get; set; }
+        public int Red { get;}
+        public int Green { get;}
+        public int Blue { get;}
     }
 }
