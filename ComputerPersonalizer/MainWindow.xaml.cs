@@ -14,12 +14,6 @@ namespace ComputerPersonalizer
             InitializeComponent();
         }
 
-
-
-        private void test_Loaded(object sender, RoutedEventArgs e)
-        {
-            ControllerWindowsSelection controllerWindowsSelection = new ControllerWindowsSelection(255,255,255);
-            test.Content = controllerWindowsSelection.RgbToHex();
-        }
+        private void Move_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e) => DragMove();
     }
 }
