@@ -12,6 +12,48 @@
         WindowStyle="None" Visibility="Visible" 
         ResizeMode="NoResize"
         AllowsTransparency="True">
+    <Window.Resources>
+        <Style x:Key="Button" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Background" Value="#FF0008AA"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid SnapsToDevicePixels="True">
+                            <Border Background="{TemplateBinding Background}" BorderThickness="0" CornerRadius="20" BorderBrush="{TemplateBinding BorderBrush}">
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <EventTrigger RoutedEvent="PreviewMouseDown">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin" Duration="0:0:0.100" To="20"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+
+                            <EventTrigger RoutedEvent="PreviewMouseUp">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin" Duration="0:0:0.100" To="0"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FF003AFF"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Window.Background>
         <SolidColorBrush Color="White" Opacity="0"/>
     </Window.Background>
@@ -21,5 +63,30 @@
             <Border Background="#FF94958B" CornerRadius="40,40,0,0"/>
         </Grid>
         <Grid x:Name="Move" MouseLeftButtonDown="Move_MouseLeftButtonDown" Background="Transparent"/>
+        <Grid Height="100" VerticalAlignment="Top" Margin="0,55,0,0">
+            <StackPanel Orientation="Horizontal">
+                <Grid Width="100" Height="100" HorizontalAlignment="Left" Margin="5,0,0,0">
+                    <Border CornerRadius="20" Background="#FF00032B"/>
+                    <Button Style="{StaticResource Button}">
+                        <Image Source="Image/windows selection.png" Height="70"/>
+                    </Button>
+                </Grid>
+                <Grid Width="100" Height="100" HorizontalAlignment="Left" Margin="5,0,0,0">
+                    <Border CornerRadius="20" Background="#FF00032B"/>
+                    <Button Style="{StaticResource Button}">
+                        <Image Source="Image/Cursor.png" Height="70"/>
+                    </Button>
+                </Grid>
+                <Grid Width="100" Height="100" HorizontalAlignment="Left" Margin="5,0,0,0">
+                    <Border CornerRadius="20" Background="#FF00032B"/>
+                    <Button Style="{StaticResource Button}">
+                        <Image Source="Image/history.png" Height="70"/>
+                    </Button>
+                </Grid>
+            </StackPanel>
+        </Grid>
+        <Grid Margin="0,165,0,0">
+            
+        </Grid>
     </Grid>
 </Window>
