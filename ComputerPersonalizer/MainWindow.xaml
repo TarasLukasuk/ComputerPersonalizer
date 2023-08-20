@@ -86,7 +86,7 @@
             </StackPanel>
         </Grid>
         <Grid Margin="0,165,0,0">
-            
+            <Frame x:Name="Page"/>
         </Grid>
     </Grid>
 </Window>

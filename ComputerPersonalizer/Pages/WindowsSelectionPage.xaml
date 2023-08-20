@@ -5,10 +5,54 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ComputerPersonalizer.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="WindowsSelectionPage">
-
+      d:DesignHeight="700" d:DesignWidth="800"
+      Title="WindowsSelectionPage"
+      Background="#2632E6">
+    <Page.Resources>
+        <Style x:Key="Text" TargetType="TextBox">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="Padding" Value="10,0,0,0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Grid SnapsToDevicePixels="True">
+                            <Border Background="{TemplateBinding Background}" BorderThickness="1" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}">
+                                <ScrollViewer x:Name="PART_ContentHost"
+                                  BorderThickness="0"
+                                  Padding="{TemplateBinding Padding}"
+                                  TextElement.Foreground="{TemplateBinding Foreground}"
+                                  Background="{x:Null}"
+                                  IsTabStop="True"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter Property="BorderBrush" Value="#FFDC12FF"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
     <Grid>
-        
+        <Grid Height="40" Margin="10,50,10,0" VerticalAlignment="Top">
+            <TextBox x:Name="RGB" Style="{StaticResource Text}" TextChanged="RGB_TextChanged"/>
+            <TextBlock IsHitTestVisible="False" FontSize="14" Text="RGB:255 255 255" VerticalAlignment="Center" Foreground="Gray" Margin="12,0,12,0">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text,ElementName=RGB}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </Grid>
     </Grid>
 </Page>

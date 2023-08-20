@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ComputerPersonalizer.Pages
 {
@@ -23,6 +12,16 @@ namespace ComputerPersonalizer.Pages
         public WindowsSelectionPage()
         {
             InitializeComponent();
+        }
+
+        private void RGB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (Regex.Match(RGB.Text,@"[^0-9-\s]").Success)
+            {
+                RGB.Text=RGB.Text.Remove(RGB.Text.Length-1);
+                RGB.SelectionStart = RGB.Text.Length;
+                MessageBox.Show("Only numbers");
+            }
         }
     }
 }

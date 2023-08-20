@@ -1,4 +1,4 @@
-﻿using ComputerPersonalizerBL.Controllers.ControllerWindowsSelection;
+﻿using ComputerPersonalizer.Pages;
 using System.Windows;
 
 
@@ -12,6 +12,7 @@ namespace ComputerPersonalizer
         public MainWindow()
         {
             InitializeComponent();
+            Page.Navigate(new WindowsSelectionPage());
         }
 
         private void Move_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e) => DragMove();
