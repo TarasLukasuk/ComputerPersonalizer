@@ -9,7 +9,7 @@ namespace ComputerPersonalizerBL.Controllers.ControllerWindowsSelection
         private readonly string Hilight= "0 120 215";
         private readonly string HotTrackingColor = "0 102 204";
 
-        private WindowsSelectionColor windowsSelectionColor;
+        private readonly WindowsSelectionColor windowsSelectionColor;
 
         /// <summary>
         /// Assigning colors
