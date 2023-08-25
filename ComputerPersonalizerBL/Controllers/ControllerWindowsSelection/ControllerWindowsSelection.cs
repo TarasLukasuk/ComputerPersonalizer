@@ -1,13 +1,16 @@
 ﻿using ComputerPersonalizerBL.PersonalizationElements.WindowsSelection;
 using Microsoft.Win32;
-using System.Drawing;
+using System;
+using System.IO;
+using System.Windows.Media;
 
 namespace ComputerPersonalizerBL.Controllers.ControllerWindowsSelection
 {
-    public class ControllerWindowsSelection
+    public sealed class ControllerWindowsSelection
     {
-        private readonly string Hilight= "0 120 215";
-        private readonly string HotTrackingColor = "0 102 204";
+        private const string HILIGHT= "0 120 215";
+        private const string HOT_TRACKING_COLOR = "0 102 204";
+        private const string PATH_FILE_COLOR_HISTORY = ".\\HistoryColor.txt";
 
         private readonly WindowsSelectionColor windowsSelectionColor;
 
@@ -20,6 +23,11 @@ namespace ComputerPersonalizerBL.Controllers.ControllerWindowsSelection
         public ControllerWindowsSelection(int Red, int Green, int Blue)
         {
             windowsSelectionColor = new WindowsSelectionColor(Red, Green, Blue);
+        }
+
+        public ControllerWindowsSelection()
+        {
+            windowsSelectionColor = new WindowsSelectionColor(255,255,255);
         }
 
         /// <summary>
@@ -52,8 +60,8 @@ namespace ComputerPersonalizerBL.Controllers.ControllerWindowsSelection
         {
             using (RegistryKey registry = Registry.CurrentUser.CreateSubKey(@"Control Panel\Colors"))
             {
-                registry.SetValue("Hilight", Hilight);
-                registry.SetValue("HotTrackingColor", HotTrackingColor);
+                registry.SetValue("Hilight", HILIGHT);
+                registry.SetValue("HotTrackingColor", HOT_TRACKING_COLOR);
             }
         }
 
@@ -64,6 +72,43 @@ namespace ComputerPersonalizerBL.Controllers.ControllerWindowsSelection
         public override string ToString()
         {
             return $"{windowsSelectionColor.Red} {windowsSelectionColor.Green} {windowsSelectionColor.Blue}";
+        }
+
+        /// <summary>
+        /// Converts a Hex color to Rgb
+        /// </summary>
+        /// <param name="hexColor"></param>
+        /// <returns></returns>
+        public string HexToRgb(string hexColor)
+        {
+            System.Drawing.Color color = System.Drawing.ColorTranslator.FromHtml(hexColor);
+            return $"{Convert.ToInt16(color.R)} {Convert.ToInt16(color.G)} {Convert.ToInt16(color.B)}";
+        }
+
+        /// <summary>
+        /// Displays the color on the control
+        /// </summary>
+        /// <param name="hexColor"></param>
+        /// <returns></returns>
+        public Brush ColorDisplay(string hexColor)
+        {
+            Brush brush = new SolidColorBrush((Color)ColorConverter.ConvertFromString(hexColor));
+            return brush;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="color"></param>
+        public void RecordingСolorHistory(string color)
+        {
+            using (FileStream stream = new FileStream(PATH_FILE_COLOR_HISTORY, FileMode.OpenOrCreate))
+            {
+                using(StreamWriter writer=new StreamWriter(stream))
+                {
+                    writer.WriteLine(color);
+                }
+            }
         }
 
     }

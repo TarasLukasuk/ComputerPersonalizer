@@ -10,6 +10,8 @@ namespace ComputerPersonalizer.Pages
     /// </summary>
     public partial class WindowsSelectionPage : Page
     {
+        ControllerWindowsSelection controllerWindowsSelection = new ControllerWindowsSelection(); 
+
         public WindowsSelectionPage()
         {
             InitializeComponent();
@@ -19,8 +21,12 @@ namespace ComputerPersonalizer.Pages
         {
             CheckingInput();
             LineSeparator();
+            HEX.Text = controllerWindowsSelection.RgbToHex();
         }
 
+        /// <summary>
+        /// Checking the correctness of the entered data
+        /// </summary>
         private void CheckingInput()
         {
             if (Regex.Match(RGB.Text, @"[^0-9-\s]").Success)
@@ -31,20 +37,41 @@ namespace ComputerPersonalizer.Pages
             }
         }
 
-        private int[] LineSeparator()
+        /// <summary>
+        /// Splits a string into parts and converts a string to a number
+        /// </summary>
+        private void LineSeparator()
         {
+            int r=0;
+            int g=0;
+            int b=0;
+
             string[] separator = RGB.Text.Split(' ');
 
-            int.TryParse(separator[0], out int r);
-            int.TryParse(separator[1], out int g);
-            int.TryParse(separator[2], out int b);
+            try
+            {
+                r = int.Parse(separator[0]);
+                g = int.Parse(separator[1]);
+                b = int.Parse(separator[2]);
+                
+            }
+            catch (System.Exception)
+            {
+            }
 
-            int[] result = new int[3];
-            result[0] = r;
-            result[1] = g;
-            result[2] = b;
+            controllerWindowsSelection = new ControllerWindowsSelection(r,g,b);
+        }
 
-            return result;
+        private void HEX_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                RGB.Text = controllerWindowsSelection.HexToRgb(HEX.Text);
+                ShowColor.Background = controllerWindowsSelection.ColorDisplay(HEX.Text);
+            }
+            catch (System.Exception)
+            {
+            }
         }
     }
 }
