@@ -1,6 +1,7 @@
 ﻿using ComputerPersonalizerBL.PersonalizationElements.WindowsSelection;
 using Microsoft.Win32;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Media;
 
@@ -97,7 +98,7 @@ namespace ComputerPersonalizerBL.Controllers.ControllerWindowsSelection
         }
 
         /// <summary>
-        /// 
+        /// Saves a color to a file with color history
         /// </summary>
         /// <param name="color"></param>
         public void RecordingСolorHistory(string color)
@@ -109,6 +110,28 @@ namespace ComputerPersonalizerBL.Controllers.ControllerWindowsSelection
                     writer.WriteLine(color);
                 }
             }
+        }
+
+        /// <summary>
+        /// Reads the entire file history
+        /// </summary>
+        /// <returns></returns>
+        public List<string> ReadingHistoryColors()
+        {
+            List<string> result = new List<string>();
+
+            using (FileStream stream=new FileStream(PATH_FILE_COLOR_HISTORY, FileMode.OpenOrCreate))
+            {
+                using (StreamReader reader=new StreamReader(stream))
+                {
+                    while (reader.ReadToEnd()!=null)
+                    {
+                        result.Add(reader.ToString());
+                    }
+                }
+            }
+
+            return result;
         }
 
     }
