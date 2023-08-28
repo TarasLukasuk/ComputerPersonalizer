@@ -39,11 +39,7 @@
         </Style>
     </Page.Resources>
     <Grid>
-        <Border Background="#2632E6" CornerRadius="0,0,40,40">
-            <Control:HistoryColorControl x:Name="xgyyg" Height="25">
-                
-            </Control:HistoryColorControl>
-        </Border>
+        <Border Background="#2632E6" CornerRadius="0,0,40,40"/>
         <Grid x:Name="ShowColor" Height="400" Margin="20"/>
         <Grid Height="40" Margin="10,60,10,0" VerticalAlignment="Top">
             <TextBox x:Name="HEX" Style="{StaticResource Text}" TextChanged="HEX_TextChanged"/>

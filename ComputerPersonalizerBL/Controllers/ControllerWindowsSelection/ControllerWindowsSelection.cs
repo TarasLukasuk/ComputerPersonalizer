@@ -9,12 +9,6 @@ namespace ComputerPersonalizerBL.Controllers.ControllerWindowsSelection
 {
     public sealed class ControllerWindowsSelection
     {
-        private const string HILIGHT= "0 120 215";
-        private const string HOT_TRACKING_COLOR = "0 102 204";
-        private const string PATH_FILE_COLOR_HISTORY = ".\\HistoryColor.txt";
-
-        private readonly WindowsSelectionColor windowsSelectionColor;
-
         /// <summary>
         /// Assigning colors
         /// </summary>
@@ -30,6 +24,12 @@ namespace ComputerPersonalizerBL.Controllers.ControllerWindowsSelection
         {
             windowsSelectionColor = new WindowsSelectionColor(255,255,255);
         }
+
+        private const string HILIGHT = "0 120 215";
+        private const string HOT_TRACKING_COLOR = "0 102 204";
+        private readonly WindowsSelectionColor windowsSelectionColor;
+
+        public string CURRENT_COLOR { get; private set; }
 
         /// <summary>
         /// Setting a highlight color in the system
@@ -96,43 +96,5 @@ namespace ComputerPersonalizerBL.Controllers.ControllerWindowsSelection
             Brush brush = new SolidColorBrush((Color)ColorConverter.ConvertFromString(hexColor));
             return brush;
         }
-
-        /// <summary>
-        /// Saves a color to a file with color history
-        /// </summary>
-        /// <param name="color"></param>
-        public void RecordingСolorHistory(string color)
-        {
-            using (FileStream stream = new FileStream(PATH_FILE_COLOR_HISTORY, FileMode.OpenOrCreate))
-            {
-                using(StreamWriter writer=new StreamWriter(stream))
-                {
-                    writer.WriteLine(color);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Reads the entire file history
-        /// </summary>
-        /// <returns></returns>
-        public List<string> ReadingHistoryColors()
-        {
-            List<string> result = new List<string>();
-
-            using (FileStream stream=new FileStream(PATH_FILE_COLOR_HISTORY, FileMode.OpenOrCreate))
-            {
-                using (StreamReader reader=new StreamReader(stream))
-                {
-                    while (reader.ReadToEnd()!=null)
-                    {
-                        result.Add(reader.ToString());
-                    }
-                }
-            }
-
-            return result;
-        }
-
     }
 }

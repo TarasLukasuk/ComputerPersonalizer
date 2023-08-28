@@ -127,6 +127,10 @@
       <Project>{35085d1e-89e5-4573-8e00-f16c6012cb6d}</Project>
       <Name>ComputerPersonalizerBL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ComputerPersonalizerData\ComputerPersonalizerData.csproj">
+      <Project>{5385393c-adad-4476-aa49-65872a9dd4c0}</Project>
+      <Name>ComputerPersonalizerData</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\Cursor.png" />
