@@ -12,9 +12,24 @@ namespace ComputerPersonalizer
         public MainWindow()
         {
             InitializeComponent();
-            Page.Navigate(new HistoryPage());
+            Page.Navigate(new WindowsSelectionPage());
         }
 
         private void Move_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e) => DragMove();
+
+        private void WindowsSelection_Click(object sender, RoutedEventArgs e)
+        {
+            Page.Navigate(new WindowsSelectionPage());
+        }
+
+        private void Cursor_Click(object sender, RoutedEventArgs e)
+        {
+            Page.Navigate(new CursorPage());
+        }
+
+        private void History_Click(object sender, RoutedEventArgs e)
+        {
+            Page.Navigate(new HistoryPage());
+        }
     }
 }

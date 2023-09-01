@@ -67,19 +67,19 @@
             <StackPanel Orientation="Horizontal">
                 <Grid Width="100" Height="100" HorizontalAlignment="Left" Margin="5,0,0,0">
                     <Border CornerRadius="20" Background="#FF00032B"/>
-                    <Button Style="{StaticResource Button}">
+                    <Button x:Name="WindowsSelection" Style="{StaticResource Button}" Click="WindowsSelection_Click">
                         <Image Source="Image/windows selection.png" Height="70"/>
                     </Button>
                 </Grid>
                 <Grid Width="100" Height="100" HorizontalAlignment="Left" Margin="5,0,0,0">
                     <Border CornerRadius="20" Background="#FF00032B"/>
-                    <Button Style="{StaticResource Button}">
+                    <Button x:Name="Cursor" Style="{StaticResource Button}" Click="Cursor_Click">
                         <Image Source="Image/Cursor.png" Height="70"/>
                     </Button>
                 </Grid>
                 <Grid Width="100" Height="100" HorizontalAlignment="Left" Margin="5,0,0,0">
                     <Border CornerRadius="20" Background="#FF00032B"/>
-                    <Button Style="{StaticResource Button}">
+                    <Button x:Name="History" Style="{StaticResource Button}" Click="History_Click">
                         <Image Source="Image/history.png" Height="70"/>
                     </Button>
                 </Grid>

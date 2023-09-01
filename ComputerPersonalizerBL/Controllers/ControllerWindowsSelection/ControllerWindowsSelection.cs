@@ -1,8 +1,6 @@
 ﻿using ComputerPersonalizerBL.PersonalizationElements.WindowsSelection;
 using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Windows.Media;
 
 namespace ComputerPersonalizerBL.Controllers.ControllerWindowsSelection
@@ -28,8 +26,6 @@ namespace ComputerPersonalizerBL.Controllers.ControllerWindowsSelection
         private const string HILIGHT = "0 120 215";
         private const string HOT_TRACKING_COLOR = "0 102 204";
         private readonly WindowsSelectionColor windowsSelectionColor;
-
-        public string CURRENT_COLOR { get; private set; }
 
         /// <summary>
         /// Setting a highlight color in the system

@@ -1,4 +1,5 @@
-﻿using ComputerPersonalizerBL.Controllers.ControllerWindowsSelection;
+﻿using ComputerPersonalizer.Control;
+using ComputerPersonalizerBL.Controllers.ControllerWindowsSelection;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,7 +11,7 @@ namespace ComputerPersonalizer.Pages
     /// </summary>
     public partial class WindowsSelectionPage : Page
     {
-        ControllerWindowsSelection controllerWindowsSelection = new ControllerWindowsSelection(); 
+        ControllerWindowsSelection controllerWindowsSelection = new ControllerWindowsSelection();
 
         public WindowsSelectionPage()
         {
@@ -72,6 +73,11 @@ namespace ComputerPersonalizer.Pages
             catch (System.Exception)
             {
             }
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
