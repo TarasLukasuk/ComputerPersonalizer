@@ -2,12 +2,6 @@
 {
     internal struct WindowsSelectionColor
     {
-        /// <summary>
-        /// Creating a color structure
-        /// </summary>
-        /// <param name="red"></param>
-        /// <param name="green"></param>
-        /// <param name="blue"></param>
         public WindowsSelectionColor(int red, int green, int blue)
         {
             Red = red;

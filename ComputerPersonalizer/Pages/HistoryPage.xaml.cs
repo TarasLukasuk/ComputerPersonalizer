@@ -14,10 +14,7 @@ namespace ComputerPersonalizer.Pages
         private HistoryColorControl historyColorControl;
         private readonly ComputerPersonalizerDatas computerPersonalizerData = new ComputerPersonalizerDatas();
 
-        public HistoryPage()
-        {
-            InitializeComponent();
-        }
+        public HistoryPage() => InitializeComponent();
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {

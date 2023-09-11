@@ -1,5 +1,6 @@
 ﻿using ComputerPersonalizer.Control;
 using ComputerPersonalizerBL.Controllers.ControllerWindowsSelection;
+using ComputerPersonalizerData;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,7 +12,8 @@ namespace ComputerPersonalizer.Pages
     /// </summary>
     public partial class WindowsSelectionPage : Page
     {
-        ControllerWindowsSelection controllerWindowsSelection = new ControllerWindowsSelection();
+        private ControllerWindowsSelection controllerWindowsSelection = new ControllerWindowsSelection();
+        private readonly ComputerPersonalizerDatas computerPersonalizerDatas = new ComputerPersonalizerDatas();
 
         public WindowsSelectionPage()
         {
@@ -25,9 +27,6 @@ namespace ComputerPersonalizer.Pages
             HEX.Text = controllerWindowsSelection.RgbToHex();
         }
 
-        /// <summary>
-        /// Checking the correctness of the entered data
-        /// </summary>
         private void CheckingInput()
         {
             if (Regex.Match(RGB.Text, @"[^0-9-\s]").Success)
@@ -38,9 +37,6 @@ namespace ComputerPersonalizer.Pages
             }
         }
 
-        /// <summary>
-        /// Splits a string into parts and converts a string to a number
-        /// </summary>
         private void LineSeparator()
         {
             int r=0;
@@ -75,9 +71,10 @@ namespace ComputerPersonalizer.Pages
             }
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            
-        }
+        private void Page_Loaded(object sender, RoutedEventArgs e) => HEX.Text = computerPersonalizerDatas.GettingColorFromXmlFile();
+
+        private void SaveColor_Click(object sender, RoutedEventArgs e) => computerPersonalizerDatas.SaveWindowsSelectionColor(controllerWindowsSelection);
+
+        private void ResetColor_Click(object sender, RoutedEventArgs e) => computerPersonalizerDatas.ResetColor();
     }
 }

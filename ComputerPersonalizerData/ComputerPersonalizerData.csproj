@@ -44,5 +44,11 @@
     <Compile Include="ComputerPersonalizerData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ComputerPersonalizerBL\ComputerPersonalizerBL.csproj">
+      <Project>{35085D1E-89E5-4573-8E00-F16C6012CB6D}</Project>
+      <Name>ComputerPersonalizerBL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
